@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Color de fondo dinámico</title>
+</head>
+<body>
+    <form>
+            <label class="slider rojo">
+                Rojo
+                <input type="range" class="level" id="rangeRed"  min="0" max="255" step="1" value="33" oninput="document.getElementById('spanRed').innerText=this.value">
+                <span id="spanRed">33</span>
+            </label>
+            <label class="slider verde">
+                Verde
+                <input type="range" class="level" id="rangeGreen" min="0" max="255" step="1" value="33" oninput="document.getElementById('spanGreen').innerText=this.value">
+                <span id="spanGreen">33</span>
+            </label>
+            <label class="slider azul">
+                Azul
+                <input type="range" class="level" id="rangeBlue" min="0" max="255" step="1" value="33" oninput="document.getElementById('spanBlue').innerText=this.value">
+                <span id="spanBlue">33</span>
+            </label>
+            <input type="submit" id="boton" value="cambiar background">
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>

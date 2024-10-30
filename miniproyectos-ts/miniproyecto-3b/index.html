@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>herramientas sombras css</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="contenedor">
+        <form>
+            <fieldset>
+                <legend>Box-shadow</legend>
+                <label for="anchura">Anchura
+                        <input type="range" name="anchura" id="anchura" min="-1000" max="1000" step="1" value="0"
+                        oninput="document.getElementById('spanAnchura').textContent = this.value;">
+
+                        <span id="spanAnchura">0</span>
+                </label>
+                <label for="altura">Altura
+                    <input type="range" name="altura" id="altura" min="-1000" max="1000" step="1" value="0"
+                    oninput="document.getElementById('spanAltura').textContent = this.value;">
+
+                    <span id="spanAltura">0</span>
+                </label>
+                <label for="radioSombra">Radio de la sombra
+                    <input type="range" name="radioSombra" id="radioSombra" min="0" max="100" step="1"  value="0"
+                    oninput="document.getElementById('spanRadioSombra').textContent = this.value;">
+
+                    <span id="spanRadioSombra">0</span>
+                </label>
+                <label for="radioPropagacion">Radio de propagación
+                    <input type="range" name="radioPropagacion" id="radioPropagacion" min="-100" max="100" step="1" value="0"
+                    oninput="document.getElementById('spanRadioPropagacion').textContent = this.value;">
+
+                    <span id="spanRadioPropagacion">0</span>
+                </label>
+                <label for="colorSombra">Color de la sombra
+                    <input type="color" name="colorSombra" id="colorSombra">
+                </label>
+
+                <label for="opacidad">Opacidad
+                    <input type="range" name="opacidad" id="opacidad" min="0" max="1" step="0.01" value="0"
+                    oninput="document.getElementById('spanOpacidad').textContent = this.value;">
+                    
+                    <span id="spanOpacidad">0</span>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>Colores</legend>
+                <label for="colorFondo">Color de fondo
+                    <input type="color" name="colorFondo" id="colorFondo" value="#ffffff">
+                </label>
+                <label for="colorCaja">Color de caja
+                    <input type="color" name="colorCaja" id="colorCaja" value="#e7a61a">
+                </label>
+            </fieldset>
+        </form>
+        <div class="caja-boxshadow">
+            <div class="caja">
+                <div class="texto">
+                    Copiar texto
+                </div>
+                <div id="resultado">
+    
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Texto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Texto</h1>
+        <form>
+            <label for="tipoTexto">Selecciona el tipo de texto:</label>
+            <select id="tipoTexto">
+                <option value="ipsum">Lorem Ipsum</option>
+                <option value="italiano">Italiano</option>
+                <option value="frances">Francés</option>
+            </select>
+
+            <label for="tipoValor">Elige </label>
+            <select id="tipoValor">
+                <option value="parrafo">párrafos</option>
+                <option value="palabra">palabras</option>
+                <option value="letra">letras</option>
+            </select>
+
+            <label for="cantidad">Cantidad:</label>
+            <input type="number" id="cantidad" min="1" value="1">
+
+            <div class="error invisible">
+                <p>La cantidad no es aceptada</p>
+            </div>
+
+            <button type="submit">Generar Texto</button>
+        </form>
+
+        <div id="resultado" class="resultado"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Conversor de Divisas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Conversor de Divisas</h1>
+        <form id="conversionForm">
+                <label for="cantidad">Cantidad:</label>
+                <input type="number" id="cantidad" name="cantidad" placeholder="Ingresa la cantidad" min="0" required>
+                <div class="error invisible" id="error-cantidad">
+                    <p>el campo cantidad está vacío o no es un valor válido</p>
+                </div>
+                
+                <label for="monedaOrigen">De:</label>
+                <select name="monedaOrigen" id="monedaOrigen">
+                    <option value="estadosUnidos">Estados Unidos (USD)</option>
+                    <option value="peru">Perú (PEN)</option>
+                    <option value="ue">Unión Europea (EUR)</option>
+                    <option value="china">China (CNY)</option>
+                    <option value="sudafrica">Sudáfrica (ZAR)</option>
+                </select>
+                
+                <label for="monedaDestino">A:</label>
+                <select name="monedaDestino" id="monedaDestino">
+                    <option value="dolar">Estados Unidos (USD)</option>
+                    <option value="sol">Perú (PEN)</option>
+                    <option value="euro">Unión Europea (EUR)</option>
+                    <option value="yuan">China (CNY)</option>
+                    <option value="rand">Sudáfrica (ZAR)</option>
+                </select>
+
+                <div class="error invisible" id="error-monedaDestino">
+                    <p>selecciona una moneda de cambio distinta a la moneda de origen</p>
+                </div>
+            <button type="submit">Convertir</button>
+        </form>
+
+        <div id="resultado" class="resultado">
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
