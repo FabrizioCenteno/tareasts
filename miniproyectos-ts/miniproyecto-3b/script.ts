@@ -42,7 +42,6 @@ box-shadow: ${boxShadowValue}
 
 }
 
-
 anchura.addEventListener('input', generateShadow)
 altura.addEventListener('input', generateShadow)
 radioSombra.addEventListener('input', generateShadow)

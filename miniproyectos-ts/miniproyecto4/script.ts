@@ -2,24 +2,21 @@ const tipoTexto = document.getElementById('tipoTexto') as HTMLSelectElement
 const tipoValor = document.getElementById('tipoValor') as HTMLSelectElement
 const cantidadInput = document.getElementById('cantidad') as HTMLInputElement
 const resultadoDiv = document.getElementById('resultado') as HTMLElement
-const boton = document.querySelector('button') 
+const boton = document.querySelector('button') as HTMLElement
 const erroMensaje = document.querySelector('.error') as HTMLElement
-
 const texto = {
     ipsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     italiano: "Non ci sono frutti proibiti nella vita, ma ci sono molti che ci portano a riflessioni profonde. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
     frances: "Il n'y a pas de fruits défendus dans la vie, mais il y a beaucoup de réflexions profondes. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo."
 }
+const contenido = texto[tipoTexto.value as keyof typeof texto];
 
 function generarPorParrafo(cantidad:number){
-    const contenido = texto[ tipoTexto.value as keyof typeof texto ]
     return  Array(cantidad).fill(contenido).join("<br>")
 
 }
 
 function generarPorPalabra(cantidad: number) {
-    const contenido = texto[tipoTexto.value as keyof typeof texto];
-
     const palabras = contenido.split(' ');
 
     if (cantidad > palabras.length) {
@@ -37,20 +34,26 @@ function generarPorPalabra(cantidad: number) {
 }
 
 function generarPorLetra(cantidad: number) {
-    const contenido = texto[tipoTexto.value as keyof typeof texto];
-
     const letras = contenido.split(''); 
-
     if (cantidad > letras.length) {
-        const repetidas = Array(Math.ceil(cantidad / letras.length))
+        let repetidas = Array(Math.ceil(cantidad / letras.length))
             .fill(letras) 
-            .flat() 
-            .slice(0, cantidad); 
-
+            .flat()
+            .slice(0, cantidad);
+            const espacios = repetidas.filter( l => l === ' ')
+            if(espacios){
+                return Array(Math.ceil(cantidad / letras.length))
+                .fill(letras) 
+                .flat()
+                .slice(0, cantidad+espacios.length).join();
+            } 
+     
         return repetidas.join('');
     }
 
     const letrasCortadas = letras.slice(0, cantidad);
+    const espacios = letrasCortadas.filter( l => l === ' ')
+    if(espacios) return letras.slice(0,cantidad+espacios.length).join('')
 
     return letrasCortadas.join('');
 }

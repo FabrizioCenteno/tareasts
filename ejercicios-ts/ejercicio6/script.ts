@@ -1,10 +1,17 @@
-const numLetras = document.getElementById('numLetras');
-const numPalabras = document.getElementById('numPalabras');
-const textArea = document.querySelector('textarea');
+const numLetras = document.getElementById('numLetras') as HTMLElement;
+const numPalabras = document.getElementById('numPalabras') as HTMLElement;
+const textArea = document.querySelector('textarea') as HTMLTextAreaElement;
 
-textArea?.addEventListener('input', function() {
-    const texto = textArea.value.trim(); // Eliminar espacios al principio y al final
-    const palabras = texto.length > 0 ? texto.split(/\s+/) : []; // Dividir usando expresión regular
-    numPalabras!.textContent = `${palabras.length}`; // Actualizar el contador de palabras
-    numLetras!.textContent = `${texto.replace(/[^a-zA-Z0-9]/g, '').length}`; // Actualizar el contador de letras
-});
+function contarLetras(texto:String):number{
+    return texto.split('').filter( caracter => /^[a-zA-ZáéíóúÁÉÍÓÚ]+$/.test(caracter)).length
+}
+
+function contarPalabras(texto:string):number{
+    return texto.split(' ').filter( palabra =>  /^[¡¿]?[a-zA-ZáéíóúÁÉÍÓÚñÑ]+[.,;!?]?$/.test(palabra)).length
+}
+
+textArea?.addEventListener( 'input', function (){
+    let contenido = textArea.value
+    numLetras.textContent= ''+ contarLetras(contenido)
+    numPalabras.textContent = ''+ contarPalabras(contenido)
+})

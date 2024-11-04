@@ -9,6 +9,7 @@ body {
 }
 
 .contenedor {
+    width: 1200px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -51,6 +52,7 @@ input[type="range"] {
 }
 
 .caja-boxshadow {
+    overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #fff;
@@ -59,9 +61,9 @@ input[type="range"] {
 
 .caja{
     border: 1px solid black;
-    height: 70%;
+    height: 40%;
     padding: 10px;
-    margin: 50px auto;
+    margin: 50px;
     background-color:  #e7a61a;
 }
 
