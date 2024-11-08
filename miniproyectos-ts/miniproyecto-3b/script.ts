@@ -42,12 +42,31 @@ box-shadow: ${boxShadowValue}
 
 }
 
-anchura.addEventListener('input', generateShadow)
-altura.addEventListener('input', generateShadow)
-radioSombra.addEventListener('input', generateShadow)
-radioPropagacion.addEventListener('input', generateShadow)
+function cantidadSpan( span:string, input:HTMLInputElement ) {
+    document.getElementById(span)!.textContent = input.value
+}
+
+anchura.addEventListener('input', function(){
+    cantidadSpan('spanAnchura',this)
+    generateShadow()
+})
+altura.addEventListener('input', function () {
+    cantidadSpan('spanAltura',this)
+    generateShadow()
+})
+radioSombra.addEventListener('input',function() {
+    cantidadSpan('spanRadioSombra',this)
+    generateShadow()
+} )
+radioPropagacion.addEventListener('input', function() {
+    cantidadSpan('spanRadioPropagacion',this)
+    generateShadow()
+})
 colorSombra.addEventListener('input', generateShadow)
-opacidad.addEventListener('input', generateShadow)
+opacidad.addEventListener('input', function() {
+    cantidadSpan('spanOpacidad',this)
+    generateShadow()
+})
 
 colorFondo.addEventListener('input', function(){
     cajaBoxShadow.style.backgroundColor = colorFondo.value

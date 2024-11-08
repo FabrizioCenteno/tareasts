@@ -57,13 +57,18 @@ input[type="range"] {
     border-radius: 8px;
     background-color: #fff;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .caja{
     border: 1px solid black;
+    width: 60%;
     height: 40%;
     padding: 10px;
-    margin: 50px;
+    /* 
+    margin: 50px; */
     background-color:  #e7a61a;
 }
 
